@@ -1,4 +1,4 @@
-package FigurasCode.Robado;
+package FigurasCode.Graficador;
 
 import javax.swing.*;
 import java.awt.*;

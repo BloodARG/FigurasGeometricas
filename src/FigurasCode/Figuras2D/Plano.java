@@ -5,7 +5,7 @@
  */
 package FigurasCode.Figuras2D;
 
-import FigurasCode.Robado.Canvas;
+import FigurasCode.Graficador.Canvas;
 import FigurasCode.*;
 import java.util.ArrayList;
 import javax.swing.*;

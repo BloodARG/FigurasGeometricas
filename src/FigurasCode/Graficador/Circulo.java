@@ -1,4 +1,4 @@
-package FigurasCode.Robado;
+package FigurasCode.Graficador;
 
 import java.awt.*;
 import java.awt.geom.*;

@@ -1,37 +1,39 @@
-package FigurasCode.Robado;
+package FigurasCode.Graficador;
 
 import java.awt.*;
 
 /**
- * Un Cuadrado que puede ser manipulado y que se dibuja a si mismo en un canvas.
- * 
+ * Un Tri�ngulo que puede ser manipulado y que se dibuja a si mismo en un canvas.
+ *
  * @author  Michael Kolling and David J. Barnes
  * @version 2006.03.30
  * Traducci�n Carlos A. Bart�
  */
 
-public class Cuadrado
+public class Triangulo
 {
-    private int tamano;
+    private int altura;
+    private int ancho;
     private int xPosicion;
     private int yPosicion;
     private String color;
     private boolean esVisible;
 
     /**
-     * Crear un nuevo cuadrado con la posici�n y el color por defecto 
+     * Crear un nuevo tri�ngulo con la posici�n y el color por defecto. 
      */
-    public Cuadrado()
+    public Triangulo()
     {
-        tamano = 30;
-        xPosicion = 60;
-        yPosicion = 50;
-        color = "red";
+        altura    = 30;
+        ancho     = 40;
+        xPosicion = 50;
+        yPosicion = 15;
+        color     = "green";
         esVisible = false;
     }
 
     /**
-     * Hacer visible �ste cuadrado. Si ya estaba visible, no hacer nada.
+     * Hacer visible �ste tri�ngulo. Si ya estaba visible, no hacer nada.
      */
     public void hacerVisible()
     {
@@ -40,7 +42,7 @@ public class Cuadrado
     }
     
     /**
-     * Hacer invisible �ste cuadrado. Si ya estaba invisible, no hacer nada.
+     * Hacer invisible �ste tri�ngulo. Si ya estaba invisible, no hacer nada.
      */
     public void hacerInvisible()
     {
@@ -49,7 +51,7 @@ public class Cuadrado
     }
     
     /**
-     * Mover el cuadrado unos pocos pixeles a la derecha.
+     * Mover el tri�ngulo unos pocos pixeles a la derecha.
      */
     public void moverDerecha()
     {
@@ -57,7 +59,7 @@ public class Cuadrado
     }
 
     /**
-     * Mover el cuadrado unos pocos pixeles a la izquierda.
+     * Mover el tri�ngulo unos pocos pixeles a la izquierda.
      */
     public void moverIzquierda()
     {
@@ -65,7 +67,7 @@ public class Cuadrado
     }
 
     /**
-     * Mover el cuadrado unos pocos pixeles hacia arriba.
+     * Mover el tri�ngulo unos pocos pixeles hacia arriba.
      */
     public void moverArriba()
     {
@@ -73,7 +75,7 @@ public class Cuadrado
     }
 
     /**
-     * Mover el cuadrado unos pocos pixeles hacia abajo.
+     * Mover el tri�ngulo unos pocos pixeles hacia abajo.
      */
     public void moverAbajo()
     {
@@ -81,7 +83,7 @@ public class Cuadrado
     }
 
     /**
-     * Mover el cuadrado horizontalmente por una 'distancia' en pixeles.
+     * Mover el tri�ngulo horizontalmente una 'distancia' en pixeles.
      */
     public void moverHorizontal(int distancia)
     {
@@ -91,7 +93,7 @@ public class Cuadrado
     }
 
     /**
-     * Mover el cuadrado verticalmente por una 'distancia' en pixeles.
+     * Mover el tri�ngulo verticalmente una 'distancia' en pixeles.
      */
     public void moverVertical(int distancia)
     {
@@ -101,7 +103,7 @@ public class Cuadrado
     }
 
     /**
-     * Mover lenta y horizontalmente el cuadrado por una 'distancia' en pixeles.
+     * Mover lenta y horizontalmente el tri�ngulo por una 'distancia' en pixeles.
      */
     public void moverLentoHorizontal(int distancia)
     {
@@ -125,7 +127,7 @@ public class Cuadrado
     }
 
     /**
-     * Mover lenta y verticalmente el cuadrado por una 'distancia' en pixeles.
+     * Mover lenta y verticalmente el tri�ngulo por una 'distancia' en pixeles.
      */
     public void moverLentoVertical(int distancia)
     {
@@ -149,17 +151,18 @@ public class Cuadrado
     }
 
     /**
-     * Cambiar el tama�o a un nuevo tama�o (en pixeles). Tama�o debe ser >= 0.
+     * Cambiar el tama�o a un nuevo tama�o (en pixeles). El tama�o debe ser >= 0.
      */
-    public void cambiarTamano(int nuevoTamano)
+    public void cambiarTamano(int nuevaAltura, int nuevoAncho)
     {
         borrar();
-        tamano = nuevoTamano;
+        altura = nuevaAltura;
+        ancho  = nuevoAncho;
         dibujar();
     }
 
     /**
-     * Cambiar el color. Colores V�lidos son: "red", "yellow", "blue", "green",
+     * Cambiar el color. Colors validos son: "red", "yellow", "blue", "green",
      * "magenta" y "black".
      */
     public void cambiarColor(String nuevoColor)
@@ -169,20 +172,21 @@ public class Cuadrado
     }
 
     /**
-     * Dibujar el Cuadrado en la pantalla con las actuales especificaciones.
+     * Dibujar el tri�ngulo en la pantalla con las actuales especificaciones.
      */
     private void dibujar()
     {
         if(esVisible) {
             Canvas canvas = Canvas.getCanvas();
-            canvas.dibujar(this, color,
-                        new Rectangle(xPosicion, yPosicion, tamano, tamano));
+            int[] xpoints = { xPosicion, xPosicion + (ancho/2), xPosicion - (ancho/2) };
+            int[] ypoints = { yPosicion, yPosicion + altura, yPosicion + altura };
+            canvas.dibujar(this, color, new Polygon(xpoints, ypoints, 3));
             canvas.esperar(10);
         }
     }
 
     /**
-     * Borrar el Cuadrado en la pantalla.
+     * Erase the triangle on screen.
      */
     private void borrar()
     {
