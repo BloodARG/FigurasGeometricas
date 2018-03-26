@@ -32,6 +32,7 @@ public class Canvas
     public static Canvas getCanvas()
     {
         if(CanvasSingleton == null) {
+            
             CanvasSingleton = new Canvas("Demo de Formas BlueJ", 300, 300, 
                                          Color.white);
         }
@@ -192,6 +193,10 @@ public class Canvas
         Dimension tamano = Canvas.getSize();
         grafico.fill(new Rectangle(0, 0, tamano.width, tamano.height));
         grafico.setColor(original);
+    }
+    public void setCanvas(Canvas canvas)
+    {
+        this.CanvasSingleton=canvas;
     }
 
 

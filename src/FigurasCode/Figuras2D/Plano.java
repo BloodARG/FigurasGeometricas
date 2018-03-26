@@ -7,11 +7,10 @@ package FigurasCode.Figuras2D;
 
 import FigurasCode.Graficador.Canvas;
 import FigurasCode.*;
+import FigurasCode.Graficador.CirculoG;
 import java.util.ArrayList;
-import javax.swing.*;
 import java.awt.*;
-import java.util.List;
-import java.util.*;
+
 /**
  *
  * @author Alumno
@@ -28,15 +27,12 @@ public class Plano
     }
     public static void main(String[] args) {
         try{
-        Canvas nani = new Canvas("Windows 10",640,480,new Color(255,255,255));    
-        Plano plan = new Plano();
-      // iniciar();
-         Circulo cir = new Circulo(3,3,4);
-        Circulo cir2 = new Circulo(3,3,4);
-       boolean yay =plan.Solapamiento(cir, cir2);
-       plan.circulos.add(cir);
-       plan.circulos.add(cir2);
-       nani.setVisible(true);
+        Canvas nani = new Canvas("Windows 10",640,480,new Color(255,255,255));
+        CirculoG cirulin = new CirculoG();
+        nani.setCanvas(nani);
+        cirulin.setCanvas(nani);
+        cirulin.hacerVisible();
+        nani.setVisible(true);
        //plan.dibujAR();      
       
         }

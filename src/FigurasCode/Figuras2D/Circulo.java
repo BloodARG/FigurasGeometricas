@@ -23,6 +23,25 @@ public class Circulo extends Figuras2D
     {
         return radio;
     }
+    public void setRadio(double radio)
+    {
+        this.radio=radio;
+    }
+    public double getX(){
+     
+    return this.pos.getX();
+    }
+    public double getY(){
+     
+    return this.pos.getY();
+    }
+    public void setY(double y)throws DimensionIncorrectaException{
+     
+    this.pos.setY(y);
+    }
+    public void setX(double X)throws DimensionIncorrectaException{
+    this.pos.setX(X);
+    }
 
     /**
      *
