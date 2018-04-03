@@ -13,7 +13,7 @@ public class Rectangulo extends Figuras2D {
     private double lado1;
     private double lado2;
     
-    public Rectangulo(double lado1, double lado2,double x,double y)throws DimensionIncorrectaException
+    public Rectangulo(double lado1, double lado2,double x,double y)throws DimensionIncorrectaException, FueraDelPlanoException
     {
         
         super(x,y);

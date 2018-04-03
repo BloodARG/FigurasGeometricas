@@ -13,7 +13,7 @@ public class Circulo extends Figuras2D
 {
     private  double radio;
     
-    public Circulo(double radio,double x,double y)throws DimensionIncorrectaException
+    public Circulo(double radio,double x,double y)throws DimensionIncorrectaException ,FueraDelPlanoException
     {
         super(x,y);       
         this.radio=radio;
@@ -35,11 +35,12 @@ public class Circulo extends Figuras2D
      
     return this.pos.getY();
     }
-    public void setY(double y)throws DimensionIncorrectaException{
-     
+    public void setY(double y)throws DimensionIncorrectaException,FueraDelPlanoException
+    { 
     this.pos.setY(y);
     }
-    public void setX(double X)throws DimensionIncorrectaException{
+    public void setX(double X)throws DimensionIncorrectaException,FueraDelPlanoException
+    {
     this.pos.setX(X);
     }
 

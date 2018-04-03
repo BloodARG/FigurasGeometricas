@@ -42,41 +42,8 @@ public class Plano
         }
 
     }
-    
-    private  void dibujAR()
-    {
-        int b=1;
-        int _estecirculo=0;
-        for(int i =0 ; i<=2000;i++)
-        {            
-            if(i==150*b)
-            {
-                System.out.println();
-                b++;
-            }
-            if(!circulos.isEmpty())
-            {
-                
-               /* if((circulos.get(c-x).pos.getX()*circulos.get(c-x).getRadio()==i)|circulos.get(c-x).pos.getY()*circulos.get(c-x).getRadio()==b)
-                {
-                    System.out.print('+');
-                   
-                    continue;
-                }
-               */
-               
-                
-                
-            }
-            //x++;
-            
-            System.out.print('*');
-        
-        }
         
         
-        
-    }
     void addFigura(FigurasGeometricas figura)
     {
         figuras.add(figura);
@@ -103,6 +70,12 @@ public class Plano
         
         
     }
+    /**
+     * 
+     * @param f1 es un rectangulo
+     * @param f2 es un rectangulo
+     * @return si o no si f1 o f2 se inteceptan
+     */
     boolean Solapamiento(Rectangulo f1,Rectangulo f2)
     {
         double _xdelado1=0;

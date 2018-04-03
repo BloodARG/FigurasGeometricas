@@ -6,11 +6,11 @@ import java.awt.*;
 import java.awt.geom.*;
 
 /**
- * Un c�rculo que puede ser manipulado y que se dibuja a si mismo en un canvas. 
+ * Un crculo que puede ser manipulado y que se dibuja a si mismo en un canvas. 
  * 
  * @author  Michael Kolling and David J. Barnes
  * @version 2006.03.30
- * Traducci�n Carlos A. Bart�
+ * Traducci�n Carlos A. Bart
  */
 
 public class CirculoG
@@ -20,7 +20,7 @@ public class CirculoG
     private boolean esVisible;
     
     /**
-     * Crear un nuevo c�rculo en la posici�n y el color por defecto. 
+     * Crear un nuevo crculo en la posicin y el color por defecto. 
      */
     public CirculoG()throws DimensionIncorrectaException
     {
@@ -30,7 +30,7 @@ public class CirculoG
     }
 
     /**
-     * Hacer visible a este c�rculo. Si ya estaba visible no hace nada.
+     * Hacer visible a este crculo. Si ya estaba visible no hace nada.
      */
     public void hacerVisible()
     {
@@ -39,7 +39,7 @@ public class CirculoG
     }
     
     /**
-     * Hacer invisible a este c�rculo. Si ya estaba invisible no hace nada.
+     * Hacer invisible a este crculo. Si ya estaba invisible no hace nada.
      */
     public void hacerInvisible()
     {
@@ -48,7 +48,7 @@ public class CirculoG
     }
     
     /**
-     * Mover el c�rculo unos pocos pixeles a la derecha.
+     * Mover el crculo unos pocos pixeles a la derecha.
      */
     public void moverDerecha()throws DimensionIncorrectaException
     {
@@ -72,7 +72,7 @@ public class CirculoG
     }
 
     /**
-     * Mover el c�rculo unos pocos pixeles hacia abajo.
+     * Mover el cculo unos pocos pixeles hacia abajo.
      */
     public void moverAbajo()throws DimensionIncorrectaException
     {
@@ -80,7 +80,7 @@ public class CirculoG
     }
 
     /**
-     * Mover el c�rculo horizontalmente una 'distancia' en pixeles.
+     * Mover el crculo horizontalmente una 'distancia' en pixeles.
      */
     public void moverHorizontal(int distancia)throws DimensionIncorrectaException
     {
@@ -90,7 +90,7 @@ public class CirculoG
     }
 
     /**
-     * Mover el c�rculo verticalmente una 'distancia' en pixeles.
+     * Mover el crculo verticalmente una 'distancia' en pixeles.
      */
     public void moverVertical(int distancia)throws DimensionIncorrectaException
     {
@@ -152,7 +152,7 @@ public class CirculoG
     }
 
     /**
-     * Cambiar el tama�o a uno nuevo (en pixeles). El tama�o debe ser >= 0.
+     * Cambiar el tamao a uno nuevo (en pixeles). El tama�o debe ser >= 0.
      */
     public void cambiarTamano(int nuevoDiametro)
     {
