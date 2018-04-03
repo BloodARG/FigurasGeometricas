@@ -12,35 +12,47 @@ package FigurasCode.Figuras2D;
 public class Posicion2D {
     private double x;
     private double y;
+    private static final double limMinX = -1000;
+    private static final double limMinY = limMinX;
+    private static final double limMaxX=1000;
+    private static final double limMaxY=1000;
+    
     
     /**
      *
      * @param x
      * @param y
      * @throws DimensionIncorrectaException
+     * @throws FigurasCode.Figuras2D.FueraDelPlanoException
      */
-    public Posicion2D(double x ,double y) throws DimensionIncorrectaException
+    public Posicion2D(double x ,double y) throws FueraDelPlanoException, DimensionIncorrectaException
     {
         setX(x);
         setY(y); 
     }
     public double getX(){return x;}
     public double getY(){return y;}
-    public void setX(double x) throws DimensionIncorrectaException
+    public void setX(double x) throws DimensionIncorrectaException , FueraDelPlanoException
     {
-        if(x>=0){
-        this.x=x;
-        }
-        else{throw new DimensionIncorrectaException ("fallo al actualizar la componente x de la posicion");}
+       if(x>=limMinX && x<=limMaxX)
+            {
+              this.x=x;  
+            }
+    else
+      {
+            throw new FueraDelPlanoException(" fallo, esta fuera del plano la componente X");    
+      }
     }
-    public void setY(double y)throws DimensionIncorrectaException 
+    public void setY(double y)throws DimensionIncorrectaException  , FueraDelPlanoException
     {
-        if(y>=0)
-        {
-        this.y=y;
-        }
-        else{throw new DimensionIncorrectaException("fallo al actualizar la componente y de la posicion");}
-    
+      if(y>=limMinY && y<=limMaxY)
+            {
+              this.y=y;  
+            }
+    else
+      {
+                throw new FueraDelPlanoException(" fallo, esta fuera del plano la componente Y");    
+      }
     }
     
     public double distancia(Posicion2D pos)

@@ -5,11 +5,9 @@
  */
 package FigurasCode.Figuras2D;
 
-import FigurasCode.Graficador.Canvas;
 import FigurasCode.*;
-import FigurasCode.Graficador.CirculoG;
 import java.util.ArrayList;
-import java.awt.*;
+import java.util.TreeMap;
 
 /**
  *
@@ -17,16 +15,19 @@ import java.awt.*;
  */
 public class Plano 
 {
-    private static final ArrayList<FigurasGeometricas> figuras = new ArrayList();
+    //private static final ArrayList<FigurasGeometricas> figuras = new ArrayList();
     private ArrayList<Circulo> circulos = new ArrayList();
     private ArrayList<Rectangulo> rectan =new ArrayList();
-    
+    private ArrayList<Figuras2D>  fig =new ArrayList();
     public Plano()
     {
-        figuras.clear();
+        circulos.clear();
+        rectan.clear();
+        fig.clear();
     }
     public static void main(String[] args) {
         try{
+            /*
         Canvas nani = new Canvas("Windows 10",640,480,new Color(255,255,255));
         CirculoG cirulin = new CirculoG();
         nani.setCanvas(nani);
@@ -34,7 +35,8 @@ public class Plano
         cirulin.hacerVisible();
         nani.setVisible(true);
        //plan.dibujAR();      
-      
+      */
+            Circulo circulo = new Circulo(10,10,100);
         }
         catch(Exception e)
         {
@@ -42,52 +44,58 @@ public class Plano
         }
 
     }
-    
-    private  void dibujAR()
-    {
-        int b=1;
-        int _estecirculo=0;
-        for(int i =0 ; i<=2000;i++)
-        {            
-            if(i==150*b)
-            {
-                System.out.println();
-                b++;
-            }
-            if(!circulos.isEmpty())
-            {
-                
-               /* if((circulos.get(c-x).pos.getX()*circulos.get(c-x).getRadio()==i)|circulos.get(c-x).pos.getY()*circulos.get(c-x).getRadio()==b)
-                {
-                    System.out.print('+');
-                   
-                    continue;
-                }
-               */
-               
-                
-                
-            }
-            //x++;
-            
-            System.out.print('*');
         
+    /**
+     *
+     * @param 
+     */
+    public ArrayList<Figuras2D>OrdenarPorSuperficie()
+    {
+        TreeMap<Double,Figuras2D> nani = new TreeMap<>();
+        if(!(fig==null)){
+            fig.forEach(k -> { 
+                nani.put(k.superficie(), k);              
+            } );
         }
+       
         
-        
-        
+        return new ArrayList<Figuras2D>(nani.values());
     }
-    void addFigura(FigurasGeometricas figura)
+    public ArrayList<Figuras2D>OrdenarPorPerimetro()
     {
-        figuras.add(figura);
-    }
+        TreeMap<Double,Figuras2D> nani = new TreeMap<>();
+        if(!(fig==null)){
+            fig.forEach(k -> { 
+                nani.put(k.perimetro(), k);              
+            } );
+        }
+        return new ArrayList<Figuras2D>(nani.values());
+    }    
+   
     void addCirculo(Circulo circulito)
-    {
-        figuras.add(circulito);
+    { 
+        if(!(circulito!=null))
+        {
+          fig.add(circulito);
+        circulos.add(circulito);
+        }
+        else
+        {
+             System.out.println("el elemento no existe o es nulo ");
+        }
+      
     }
     void addRectangulo(Rectangulo rectangulito)
     {
-        figuras.add(rectangulito);
+         if(!(rectangulito!=null))
+        {
+          fig.add(rectangulito);
+        rectan.add(rectangulito);
+        }
+        else
+        {
+             System.out.println("el elemento no existe o es nulo ");
+        }
     }
     boolean Solapamiento(Circulo f1,Circulo f2)
     {
@@ -100,9 +108,13 @@ public class Plano
        {
         return true;   
        }
-        
-        
     }
+    /**
+     * 
+     * @param f1 es un rectangulo
+     * @param f2 es un rectangulo
+     * @return si o no si f1 o f2 se inteceptan
+     */
     boolean Solapamiento(Rectangulo f1,Rectangulo f2)
     {
         double _xdelado1=0;

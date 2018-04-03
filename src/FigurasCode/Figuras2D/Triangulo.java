@@ -14,13 +14,21 @@ public class Triangulo extends Figuras2D {
     private double lado2;
     private double lado3;
     
-    public Triangulo(double lado1 ,double lado2 ,double lado3,double x, double y)throws DimensionIncorrectaException
+    public Triangulo(double lado1 ,double lado2 ,double lado3,double x, double y)throws DimensionIncorrectaException, FueraDelPlanoException
     {
         
         super(x,y);
+       if(lado1>0 && lado2>0 && lado3>0 )
+       {
         this.lado1=lado1;
         this.lado2=lado2;
         this.lado3=lado3;
+       }
+       else
+       {
+           throw new  DimensionIncorrectaException("El lado no puede ser negativo");
+       }
+       
     }
      @Override
   public double perimetro()
@@ -38,4 +46,9 @@ public class Triangulo extends Figuras2D {
   {
       return "Triangulo";
   }
+
+    @Override
+    protected void CalcularExtremos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

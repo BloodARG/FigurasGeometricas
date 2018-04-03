@@ -13,14 +13,22 @@ public class Rectangulo extends Figuras2D {
     private double lado1;
     private double lado2;
     
-    public Rectangulo(double lado1, double lado2,double x,double y)throws DimensionIncorrectaException
+    public Rectangulo(double lado1, double lado2,double x,double y)throws DimensionIncorrectaException, FueraDelPlanoException
     {
         
         super(x,y);
+        if(lado1>0 && lado2>0)
+        {
         this.lado1=lado1;
-        this.lado2=lado2;
-        
+        this.lado2=lado2; 
+        }
+        else
+        {
+          throw  new DimensionIncorrectaException("no puede tener lados negativos")    ;
+        }
     }
+        
+    
     public double getLado1()
     {
         return lado1;
@@ -39,5 +47,10 @@ public class Rectangulo extends Figuras2D {
   {
       return lado1*lado2;
   }
+
+    @Override
+    protected void CalcularExtremos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -122,8 +122,7 @@ public class Canvas
     }
 
     /**
-     * Establecer el color de fondo del Canvas.
-     * @param  nuevoColor  el color nuevo para el fondo del Canvas. 
+     * Establecer el color de fondo del Canvas. 
      */
     public void setForegroundColor(String cadenaColor)
     {

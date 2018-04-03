@@ -5,6 +5,9 @@
  */
 package FigurasCode.Figuras2D;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Alumno
@@ -13,9 +16,16 @@ public class Circulo extends Figuras2D
 {
     private  double radio;
     
-    public Circulo(double radio,double x,double y)throws DimensionIncorrectaException
+    public Circulo(double radio,double x,double y)throws DimensionIncorrectaException ,FueraDelPlanoException
     {
-        super(x,y);       
+        super(x,y);
+       if(radio>0){
+           
+           this.radio=radio;
+       }
+       else{
+           throw new  DimensionIncorrectaException("El Radio no puede ser negativo");
+       }
         this.radio=radio;
                 
     }
@@ -35,18 +45,15 @@ public class Circulo extends Figuras2D
      
     return this.pos.getY();
     }
-    public void setY(double y)throws DimensionIncorrectaException{
-     
+    public void setY(double y)throws DimensionIncorrectaException,FueraDelPlanoException
+    { 
     this.pos.setY(y);
     }
-    public void setX(double X)throws DimensionIncorrectaException{
+    public void setX(double X)throws DimensionIncorrectaException,FueraDelPlanoException
+    {
     this.pos.setX(X);
     }
 
-    /**
-     *
-     * @return
-     */
   
     
     @Override
@@ -62,7 +69,26 @@ public class Circulo extends Figuras2D
      @Override
   public String toString()
   {
-      return "Circulo";
+      
+      return "Circulo"+" "+this.id;
   }
+
+    @Override
+    protected void CalcularExtremos() {
+        try {
+            //superior
+            new Posicion2D(this.pos.getX()+this.radio,this.pos.getY());
+            new Posicion2D(this.pos.getX()-this.radio,this.pos.getY());
+            new Posicion2D(this.pos.getY()-this.radio,this.pos.getX());
+             new Posicion2D(this.pos.getY()+this.radio,this.pos.getX());
+        }
+        
+       catch (FueraDelPlanoException ex) {
+            Logger.getLogger(Circulo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+    
+   
+    }
   
 }
