@@ -85,6 +85,8 @@ public class Circulo extends Figuras2D
         
        catch (FueraDelPlanoException ex) {
             Logger.getLogger(Circulo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DimensionIncorrectaException ex) {
+            Logger.getLogger(Circulo.class.getName()).log(Level.SEVERE, null, ex);
         }
             
     
