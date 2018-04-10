@@ -70,7 +70,8 @@ public class Plano
             } );
         }
         return new ArrayList<Figuras2D>(nani.values());
-    }    
+    }
+    
    
     void addCirculo(Circulo circulito)
     { 
