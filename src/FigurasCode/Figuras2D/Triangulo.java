@@ -14,7 +14,7 @@ public class Triangulo extends Figuras2D {
     private double lado2;
     private double lado3;
     
-    public Triangulo(double lado1 ,double lado2 ,double lado3,double x, double y)throws DimensionIncorrectaException, FueraDelPlanoException
+    public Triangulo(double lado1 ,double lado2 ,double lado3,double x, double y) throws FueraDelPlanoException, DimensionIncorrectaException
     {
         
         super(x,y);

@@ -16,23 +16,20 @@ public class Posicion2D {
     private static final double limMinY = limMinX;
     private static final double limMaxX=1000;
     private static final double limMaxY=1000;
-    
-    
     /**
      *
      * @param x
      * @param y
-     * @throws DimensionIncorrectaException
      * @throws FigurasCode.Figuras2D.FueraDelPlanoException
      */
-    public Posicion2D(double x ,double y) throws FueraDelPlanoException, DimensionIncorrectaException
+    public Posicion2D(double x ,double y)throws FueraDelPlanoException
     {
         setX(x);
         setY(y); 
     }
     public double getX(){return x;}
     public double getY(){return y;}
-    public void setX(double x) throws DimensionIncorrectaException , FueraDelPlanoException
+    public void setX(double x) throws FueraDelPlanoException
     {
        if(x>=limMinX && x<=limMaxX)
             {
@@ -43,7 +40,7 @@ public class Posicion2D {
             throw new FueraDelPlanoException(" fallo, esta fuera del plano la componente X");    
       }
     }
-    public void setY(double y)throws DimensionIncorrectaException  , FueraDelPlanoException
+    public void setY(double y)throws FueraDelPlanoException
     {
       if(y>=limMinY && y<=limMaxY)
             {

@@ -16,7 +16,7 @@ public class Circulo extends Figuras2D
 {
     private  double radio;
     
-    public Circulo(double radio,double x,double y)throws DimensionIncorrectaException ,FueraDelPlanoException
+    public Circulo(double radio,double x,double y)throws DimensionIncorrectaException, FueraDelPlanoException
     {
         super(x,y);
        if(radio>0){
@@ -33,7 +33,13 @@ public class Circulo extends Figuras2D
     {
         return radio;
     }
-    public void setRadio(double radio)
+
+    /**
+     *
+     * @param radio
+     * @throws DimensionIncorrectaException
+     */
+    public void setRadio(double radio) throws DimensionIncorrectaException
     {
         this.radio=radio;
     }
@@ -45,11 +51,11 @@ public class Circulo extends Figuras2D
      
     return this.pos.getY();
     }
-    public void setY(double y)throws DimensionIncorrectaException,FueraDelPlanoException
+    public void setY(double y) throws FueraDelPlanoException
     { 
     this.pos.setY(y);
     }
-    public void setX(double X)throws DimensionIncorrectaException,FueraDelPlanoException
+    public void setX(double X) throws FueraDelPlanoException
     {
     this.pos.setX(X);
     }
@@ -81,11 +87,7 @@ public class Circulo extends Figuras2D
             new Posicion2D(this.pos.getX()-this.radio,this.pos.getY());
             new Posicion2D(this.pos.getY()-this.radio,this.pos.getX());
              new Posicion2D(this.pos.getY()+this.radio,this.pos.getX());
-        }
-        
-       catch (FueraDelPlanoException ex) {
-            Logger.getLogger(Circulo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DimensionIncorrectaException ex) {
+        } catch (FueraDelPlanoException ex) {
             Logger.getLogger(Circulo.class.getName()).log(Level.SEVERE, null, ex);
         }
             

@@ -6,6 +6,9 @@
 package FigurasCode.Figuras2D;
 
 import FigurasCode.*;
+import FigurasCode.Graficador.Canvas;
+import FigurasCode.Graficador.CirculoG;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
@@ -27,7 +30,7 @@ public class Plano
     }
     public static void main(String[] args) {
         try{
-            /*
+            
         Canvas nani = new Canvas("Windows 10",640,480,new Color(255,255,255));
         CirculoG cirulin = new CirculoG();
         nani.setCanvas(nani);
@@ -35,7 +38,7 @@ public class Plano
         cirulin.hacerVisible();
         nani.setVisible(true);
        //plan.dibujAR();      
-      */
+      
             Circulo circulo = new Circulo(10,10,100);
         }
         catch(Exception e)
@@ -70,6 +73,26 @@ public class Plano
             } );
         }
         return new ArrayList<Figuras2D>(nani.values());
+    }
+    
+    public void ListarFiguras()
+    {
+         fig.forEach(k->{
+             System.out.println(k.toString());
+         });
+    }
+    
+    public void ListarFigurasPorPerimetro()
+    {
+         OrdenarPorPerimetro().forEach(k->{
+             System.out.println(k.toString());
+         });
+    }
+    public void ListarFigurasPorSuperficie()
+    {
+         OrdenarPorSuperficie().forEach(k->{
+             System.out.println(k.toString());
+         });
     }
     
    

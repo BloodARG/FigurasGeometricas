@@ -11,10 +11,10 @@ package FigurasCode.Figuras2D;
  */
 public interface Movil 
 {        
-    public double MoverArriba(double dist)throws FueraDelPlanoException ;
-    public double MoverAbajo(double dist)throws FueraDelPlanoException ;
-    public double MoverDerecha(double dist)throws FueraDelPlanoException ;
-    public double MoverIzquierda(double dist)throws FueraDelPlanoException ;
-    public double Mover(double distX ,double distY )throws FueraDelPlanoException ;
-    public double Mover(double Posicion2d)throws FueraDelPlanoException ;
+    public void MoverArriba(double dist);
+    public void MoverAbajo(double dist);
+    public void MoverDerecha(double dist);
+    public void MoverIzquierda(double dist);
+    public void Mover(double distX ,double distY );
+    public void Mover(Posicion2D pos);
 }
